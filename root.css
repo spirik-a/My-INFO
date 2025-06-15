@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+body {
+  background-color: yellow;
+  box-sizing: border-box;
+  padding: 0;
+
+  margin: 0;
+  height: 100vh; /* задаем высоту 100% высоты окна */
+  background-image: url("BG.png");
+  background-size: cover; /* растягивает изображение на весь контейнер */
+  background-repeat: no-repeat; /* не повторяет изображение */
+  background-position: center; /* позиционируем по центру */
+  overflow: auto; /* допускаем прокрутку, если контента больше */
+}
+
+#fulltext {
+  /* some code */
+  margin: 0;
+}
+header {
+  height: 25%;
+  width: 100%;
+  /* background-color: pink; */
+}
+#diploma {
+  height: 200px;
+  width: 142px;
+  z-index: 9999;
+  position: absolute;
+  right: 1px;
+  top: 150px;
+}
+#diploma:hover {
+  cursor: zoom-in;
+}
+#main {
+  /* font-family: "Open Sans", sans-serif; */
+  height: 25%;
+
+  width: 100%;
+}
+#videoviz {
+  font-size: 18px;
+  font-weight: bolder;
+}
+footer {
+  justify-content: space-between;
+  display: flexbox;
+  height: 25%;
+  width: 100%;
+}
+
+#atention {
+  font-size: 48px;
+  color: white;
+  position: absolute;
+  right: 1px;
+}
+
+.blink {
+  font-size: 48px;
+  animation: blinkingText 0.8s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.blink2 {
+  font-size: 32px;
+  animation: blinkingText 0.8s infinite;
+}
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: red;
+  }
+}
+#contwrap {
+  text-align: right;
+}
+#contacts {
+  text-align: right;
+  display: inline-block;
+  font-size: 46px;
+}
+#wait {
+  margin-top: 50px;
+  font-size: 48px;
+  color: violet;
+
+  position: absolute;
+  /* right: 1px;
+
+  -webkit-text-stroke: 1px white; */
+}
+
+.stroke {
+  right: 1px;
+
+  -webkit-text-stroke: 1px white;
+}
