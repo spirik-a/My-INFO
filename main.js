@@ -1,10 +1,9 @@
-document.addEventListener(
+window.addEventListener(
   "DOMContentLoaded",
   () => {
     window.scrollTo({
-      top: 60, // количество пикселей
-      behavior: "smooth", // плавная прокрутка (по желанию)
+      top: document.body.scrollHeight,
+      behavior: "smooth",
     });
-    console.log("cheker");
   }
 );
