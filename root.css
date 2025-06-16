@@ -1,127 +1,151 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
 body {
-  background-color: yellow;
-  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
   padding: 0;
-
-  margin: 0;
-  height: 100vh; /* задаем высоту 100% высоты окна */
+  box-sizing: border-box;
+  background-color: yellow; /* при невозможности загрузки изображения */
   background-image: url("BG.png");
-  background-size: cover; /* растягивает изображение на весь контейнер */
-  background-repeat: no-repeat; /* не повторяет изображение */
-  background-position: center; /* позиционируем по центру */
-  overflow: auto; /* допускаем прокрутку, если контента больше */
+  background-size: cover; /* растягивать на весь экран */
+  background-position: center; /* центрировать */
+  background-repeat: no-repeat; /* не повторять */
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#fulltext {
-  /* some code */
-  margin: 0;
-}
+/* Шапка */
 header {
-  height: 25%;
-  width: 100%;
-  /* background-color: pink; */
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  /* background-color: rgba(255, 255, 255, 0.8); */
 }
 #diploma {
-  height: 200px;
-  width: 142px;
-  z-index: 9999;
-  position: absolute;
-  right: 1px;
-  top: 150px;
-}
-#diploma:hover {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   cursor: zoom-in;
 }
+
+/* Основной блок */
 #main {
-  /* font-family: "Open Sans", sans-serif; */
-  height: 25%;
-
-  width: 100%;
+  padding: 20px;
+  /* background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); */
 }
+
+/* Видео и тексты */
 #videoviz {
-  font-size: 18px;
-  font-weight: bolder;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
+
+/* Специальные выделения */
+#important {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Список */
+ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Ссылки */
+a {
+  word-break: break-all;
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Секция контактов и футер */
 footer {
-  justify-content: space-between;
-  display: flexbox;
-  height: 25%;
-  width: 100%;
-}
-
-#atention {
-  font-size: 48px;
-  color: white;
-  position: absolute;
-  right: 1px;
-}
-
-.blink {
-  font-size: 48px;
-  animation: blinkingText 0.8s infinite;
-}
-@keyframes blinkingText {
-  0% {
-    color: red;
-  }
-  49% {
-    color: transparent;
-  }
-  50% {
-    color: transparent;
-  }
-  99% {
-    color: transparent;
-  }
-  100% {
-    color: red;
-  }
-}
-
-.blink2 {
-  font-size: 32px;
-  animation: blinkingText 0.8s infinite;
-}
-@keyframes blinkingText {
-  0% {
-    color: red;
-  }
-  49% {
-    color: transparent;
-  }
-  50% {
-    color: transparent;
-  }
-  99% {
-    color: transparent;
-  }
-  100% {
-    color: red;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  padding: 20px;
 }
 #contwrap {
-  text-align: right;
+  flex: 1 1 200px;
+  text-align: center;
 }
-#contacts {
-  text-align: right;
-  display: inline-block;
-  font-size: 46px;
+#contacts,
+#mymail {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: left;
 }
+#atention,
 #wait {
-  margin-top: 50px;
-  font-size: 48px;
-  color: violet;
-
-  position: absolute;
-  /* right: 1px;
-
-  -webkit-text-stroke: 1px white; */
+  flex: 1 1 200px;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 10px 0;
 }
 
-.stroke {
-  right: 1px;
+/* Анимация мигалки */
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  49% {
+    color: transparent;
+  }
+  50% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: red;
+  }
+}
+.blink {
+  font-size: 1.5em;
+  animation: blinkingText 0.8s infinite;
+}
+.blink2 {
+  font-size: 1.2em;
+  animation: blinkingText 0.8s infinite;
+}
 
-  -webkit-text-stroke: 1px white;
+/* Медіазапити для мобільних і планшетів */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  #videoviz {
+    font-size: 1em;
+  }
+
+  #important {
+    font-size: 1em;
+  }
+
+  ol {
+    padding-left: 15px;
+  }
+
+  /* Сховаємо або змінимо розмір */
+  #atention {
+    font-size: 1.2em;
+  }
+  #wait {
+    font-size: 1.9em;
+    font-weight: bolder;
+  }
 }
