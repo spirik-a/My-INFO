@@ -24,6 +24,22 @@
     </style>
   </head>
   <body>
+    <script>
+        function scrollToBottom() {
+    // Прокручиваем страницу вниз
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  // Запускаем функцию прокрутки после 5 секунд (5000 миллисекунд)
+  setTimeout(scrollToBottom, 10000);
+    </script>
+    <style>
+      
+  html {
+    scroll-behavior: smooth; /* Включаем плавную прокрутку для всей страницы */
+  }
+</style>
+    </style>
     <section id="fulltext">
       <!-- Контейнер для блоку "attention" -->
       <div id="attention-container">
@@ -168,10 +184,7 @@
       </section>
 
       <footer
-        style="
-          position: relative;
-          padding: 20px;
-        "
+        style="position: relative; padding: 20px"
       >
         <div id="contwrap">
           <span id="contacts"
@@ -201,6 +214,7 @@
         </div>
       </footer>
     </section>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
+
   </body>
 </html>
