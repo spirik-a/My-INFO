@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>МОИ ДИПЛОМЫ</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      header {
+        background-color: #004080;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      .slider-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding: 1rem;
+        background: #fff;
+      }
+
+      .slider-container img {
+        height: 200px;
+        cursor: pointer;
+        scroll-snap-align: start;
+        border-radius: 10px;
+        transition: transform 0.3s;
+      }
+
+      .slider-container img:hover {
+        transform: scale(1.05);
+      }
+
+      ul {
+        list-style: disc;
+        padding: 1.5rem;
+        background-color: #f1f1f1;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      li {
+        margin-bottom: 1rem;
+      }
+
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .nav-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .nav-buttons button {
+        background-color: white;
+        color: black;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .nav-buttons button:hover {
+        background-color: #ccc;
+      }
+
+      @media (max-width: 600px) {
+        header {
+          font-size: 1.5rem;
+        }
+
+        .slider-container img {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>МОЇ ДИПЛОМИ</header>
+
+    <div class="slider-container" id="slider">
+      <img
+        src="1 GRAPHIC DESIGNER.jpg"
+        alt="Диплом 1"
+      />
+      <img
+        src="2 WayUp Графічний дизайнер.jpg"
+        alt="Диплом 2"
+      />
+      <img
+        src="3 Веб-дизайнер.jpg"
+        alt="Диплом 3"
+      />
+      <img
+        src="4 веб-верстальник.jpg"
+        alt="Диплом 4"
+      />
+      <img src="diploma5.jpg" alt="Диплом 5" />
+      <img src="diploma6.jpg" alt="Диплом 6" />
+      <img src="diploma7.jpg" alt="Диплом 7" />
+      <img src="diploma8.jpg" alt="Диплом 8" />
+    </div>
+
+    <div class="lightbox" id="lightbox">
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Увеличенное изображение"
+      />
+      <div
+        id="lightbox-caption"
+        style="
+          color: white;
+          text-align: center;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        "
+      ></div>
+      <div class="nav-buttons">
+        <button id="prev-btn"><---</button>
+        <button id="next-btn">---></button>
+      </div>
+    </div>
+
+    <ul>
+      <li>
+        Освітня платформ GENIUS SPACE<br />Курс
+        «ГРАФІЧНИЙ ДИЗАЙНЕР»
+      </li>
+      <li>
+        Освітня платформ WayUp «Графічний
+        дизайнер: запуск»
+      </li>
+      <li>
+        Освітня платформ WayUp «Веб-дизайнер:
+        вибуховий старт»
+      </li>
+      <li>
+        Освітня платформ WayUp «Веб-верстальник:
+        початок»
+      </li>
+      <li>
+        GeekBrains «Основы программирования.
+        Видеокурс»
+      </li>
+      <li>ITVDN CSS FLEXBOX</li>
+      <li>ITVDN JAVASCRIPT</li>
+    </ul>
+
+    <script>
+      const lightbox =
+        document.getElementById("lightbox");
+      const lightboxImg = document.getElementById(
+        "lightbox-img"
+      );
+      const images = document.querySelectorAll(
+        ".slider-container img"
+      );
+      const prevBtn =
+        document.getElementById("prev-btn");
+      const nextBtn =
+        document.getElementById("next-btn");
+      let currentIndex = 0;
+      const captions = [
+        "Освітня платформ GENIUS SPACE<br>Курс «ГРАФІЧНИЙ ДИЗАЙНЕР»",
+        "Освітня платформ WayUp «Графічний дизайнер: запуск»",
+        "Освітня платформ WayUp «Веб-дизайнер: вибуховий старт»",
+        "Освітня платформ WayUp «Веб-верстальник: початок»",
+        "",
+        "",
+        "",
+        "",
+      ];
+
+      function showImage(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        currentIndex = index;
+        lightboxImg.src =
+          images[currentIndex].src;
+        document.getElementById(
+          "lightbox-caption"
+        ).innerHTML = captions[currentIndex];
+        lightbox.style.display = "flex";
+      }
+
+      images.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          showImage(index);
+        });
+      });
+
+      prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+      });
+
+      lightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+        document.getElementById(
+          "lightbox-caption"
+        ).innerHTML = "";
+      });
+    </script>
+  </body>
+</html>
