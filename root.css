@@ -48,8 +48,13 @@ header {
 
 /* Специальные выделения */
 #important {
+  /* установка тень для текстовки важно */
   font-weight: bold;
   font-size: 1.2em;
+  text-shadow: 2px 2px 0.2px rgba(0, 0, 0, 0.5);
+  /* установка обводку для текстовки важно */
+  -webkit-text-stroke: 0.5px white; /* Обводка (работает в WebKit-браузерах) */
+  /* text-stroke: 0.5px white; Стандартизированная обводка */
 }
 
 /* Список */
